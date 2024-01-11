@@ -1,0 +1,19 @@
+#cloud-config
+
+groups:
+  - docker
+users:
+  - default
+  - name: ubuntu
+    gecos: Ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin, docker
+    shell: /bin/bash
+    ssh_import_id: None
+    lock_passwd: true
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDT2SZdgfLiUZO6r432xNsP4j0y5gzclH3mfb3fCkRggCtJ3f2XLIbDtgvhxckCrH5hHZ0hyTYF2WQj8ZnZdnSG8ej+UntBe/yHu18KebGgaUu++NxFfrT2Y34wSzYinL5o5XX+XLpvCvFV7j29omWzaHkgwbOaJmDWsZjrLGsY/tHQET5H4ZmFCzpKQZiCicSvFMLoZFyj1sdH6Nr+Nfw2MLDEQZtXjcpOsd6Tc5Uz95eDvvGMsX7CQEVMoQR5/kJC2Il2nuMqBlPZEPuaWd6/Hc3eoKrLFp4xGYR1yC5oCLoUh+Glv7JmiDPGy4ijX30YNUQ8825LaEzRw4v6VuDq0p1nAkTTmjGZGi9xlbHt/2oQiJYljMtmniY6dVM77LMAKyBYjRYL8ryu3BJtsDxotqwGaeeh8YQRGOlhRdfu22g+QPCmAfCH9JMDH/FRXnvPHmI8L0yeCAasNO84l1Ny4HIJfMnKXwibC1THZbt8g3+lPOV8D/dUolb9/5sK/Tk= zunur@Home-PC
+package_update: true
+package_upgrade: true
+packages:
+  - docker.io
